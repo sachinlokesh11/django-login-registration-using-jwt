@@ -38,7 +38,7 @@ To run this project locally, follow these steps:
 Once the development server is running, you can access the APIs using tools like `curl`, Postman, or any HTTP client library in your preferred programming language. Make sure to refer to the [API Endpoints](#api-endpoints) section below for details on each endpoint and their usage.
 
 ## API Endpoints
-
+```
 - **POST /register**: Endpoint for user registration. Requires user details including username, email, and password.
 - **GET /activate/surl**: Endpoint to activate a user account using the activation link sent via email upon registration.
 - **POST /forgot_password**: Endpoint for initiating the password reset process. Requires the user's email address.
@@ -46,7 +46,9 @@ Once the development server is running, you can access the APIs using tools like
 - **PUT /change_password/user_id**: Endpoint to change the user's password. Requires the user's new password.
 - **POST /login**: Endpoint for user authentication. Requires a valid username and password.
 - **POST /logout**: Endpoint to log out a user and invalidate their JWT token.
-- 
+
+```
+
 ## Dependencies
 
 - Django
