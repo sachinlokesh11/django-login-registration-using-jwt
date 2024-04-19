@@ -30,3 +30,22 @@ class RegistrationSerializer(serializers.ModelSerializer):
         validated_data.pop('confirm_password')
         user = User.objects.create_user(**validated_data, is_active=False)
         return user
+
+
+class LoginSerializers(serializers.Serializer):
+    username = serializers.CharField(max_length=100, label="Username Or Email")
+    password = serializers.CharField(write_only=True)
+
+
+class ForgotPasswordSerializer(serializers.Serializer):
+    email = serializers.EmailField(label="Registered Email ID", required=True)
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    password = serializers.CharField(required=True, label="Password")
+    confirm_password = serializers.CharField(label="Confirm Password", required=True)
+
+    def validate(self, attrs):
+        if attrs['password'] != attrs['confirm_password']:
+            raise serializers.ValidationError({'confirm_password': 'Password and Confirm Password are Matching.'})
+        return attrs
